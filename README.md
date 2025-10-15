@@ -25,16 +25,14 @@ The overall time complexity is **O(n log n)**.
 | `time_once(n)`        | Measures time for one convex hull computation.              |
 | `time_median(n)`      | Runs multiple trials and takes the median runtime.          |
 ##  Finding Extreme Points
-```
-def rightmost(h: List[Point]) -> int:
+```def rightmost(h: List[Point]) -> int:
     return max(range(len(h)), key=lambda i:(h[i][0], h[i][1]))
 
 def leftmost(h: List[Point]) -> int:
     return min(range(len(h)), key=lambda i:(h[i][0], h[i][1]))
-
-##  Merging Two Hulls
 ```
-def merge(HL: List[Point], HR: List[Point]) -> List[Point]:   # Merge two convex hulls
+##  Merging Two Hulls
+```def merge(HL: List[Point], HR: List[Point]) -> List[Point]:   # Merge two convex hulls
     nL, nR = len(HL), len(HR)
     i, j = rightmost(HL), leftmost(HR)
 
@@ -80,8 +78,7 @@ def merge(HL: List[Point], HR: List[Point]) -> List[Point]:   # Merge two convex
     return R or [min(H), max(H)]
   ```
 ##  Divide and Conquer
-```
-def dch(sorted_pts: List[Point]) -> List[Point]:
+```def dch(sorted_pts: List[Point]) -> List[Point]:
     n = len(sorted_pts)
     if n <= 3: return trivial_hull(sorted_pts)
     mid = n // 2
